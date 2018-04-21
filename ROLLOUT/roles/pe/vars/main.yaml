@@ -18,6 +18,10 @@ routers:
          vrf: RVP_RUS
          nei: 192.2.8.217
      remote_as: 64923
+     CE: SC2CFDZEUSR1-03
+     CE_interface: Eth1/1
+     speed: 10G
+     BACKBONE: RED
    - hostname: SC2-A2
      main_interface: Te0/0/0/8
      sub_int:
@@ -36,3 +40,7 @@ routers:
          vrf: RVP_RUS
          nei: 192.2.8.213
      remote_as: 64923
+     CE: SC2CFDZEUSR2-04
+     CE_interface: Eth1/1
+     speed: 10G
+     BACKBONE: BLUE

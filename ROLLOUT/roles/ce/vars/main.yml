@@ -27,6 +27,9 @@ routers:
          ip: 192.2.8.217/30
          nei: 192.2.8.218
      remote_as: 64911
+     PE: SC2-A1
+     PE_interface: Te0/0/0/8
+     speed: 10G
    - hostname: SC2CFDZEUSR2-04
      main_interface: Eth1/1
      sub_int:
@@ -54,3 +57,6 @@ routers:
          ip: 192.2.8.213/30
          nei: 192.2.8.214
      remote_as: 64911
+     PE: SC2-A2
+     PE_interface: Te0/0/0/8
+     speed: 10G

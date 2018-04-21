@@ -55,10 +55,10 @@ no interface vlan 1500
 !
 !
 interface Eth1/1
- description FED_SC2-A1_Te0/0/0/8_10G
+ description FED_SC2-A2_Te0/0/0/8_10G
 !
 interface Ethernet1/1.2502
- description FED_RVP_PRVSHAREDSERVICES_SC2-A1_Te0/0/0/8_10G
+ description FED_RVP_PRVSHAREDSERVICES_SC2-A2_Te0/0/0/8_10G
  vrf member RVP_PRVSHAREDSERVICES
 encapsulation dot1q 2502
 logging event port link-status
@@ -67,7 +67,7 @@ ip address 192.4.148.53/30
 no ipv6 redirects
 
 interface Ethernet1/1.3902
- description FED_RVP_RUS_SC2-A1_Te0/0/0/8_10G
+ description FED_RVP_RUS_SC2-A2_Te0/0/0/8_10G
  vrf member RVP_RUS
 encapsulation dot1q 3902
 logging event port link-status
@@ -76,7 +76,7 @@ ip address 192.2.8.213/30
 no ipv6 redirects
 
 interface Ethernet1/1.3802
- description FED_PZEUS_SC2-A1_Te0/0/0/8_10G
+ description FED_PZEUS_SC2-A2_Te0/0/0/8_10G
  vrf member PZEUS
 encapsulation dot1q 3802
 logging event port link-status
@@ -85,7 +85,7 @@ ip address 192.2.248.53/30
 no ipv6 redirects
 
 interface Ethernet1/1.2491
- description FED_RVP_ETRALI_SC2-A1_Te0/0/0/8_10G
+ description FED_RVP_ETRALI_SC2-A2_Te0/0/0/8_10G
  vrf member RVP_ETRALI
 encapsulation dot1q 2491
 logging event port link-status
@@ -94,7 +94,7 @@ ip address 192.2.156.98/30
 no ipv6 redirects
 
 interface Ethernet1/1.1500
- description FED_ADMIN_SC2-A1_Te0/0/0/8_10G
+ description FED_ADMIN_SC2-A2_Te0/0/0/8_10G
 encapsulation dot1q 1500
 logging event port link-status
 no ip redirects
@@ -137,7 +137,7 @@ show feature | include bfd
 ! B) Add if missIN ing: no ip redirects,no ip unreachables, no ip proxy-arp
 ! C) Add BFD: bfd  interval 500 min_rx 500 multiplier 3 /!\ for Etherchannels: bfd interval 750 min_rx 750 multiplier 3
 !
-interface Ethernet2/2
+interface Eth1/1
  !
 !
 interface Ethernet1/1.2502
@@ -186,25 +186,31 @@ vrf RVP_PRVSHAREDSERVICES
 address-family ipv4 unicast
 neighbors 192.4.148.54 remote-as 64911 
 bfd
-description RVP_PRVSHAREDSERVICES_SC2-A1
+description RVP_PRVSHAREDSERVICES_SC2-A2
+!
+router bgp 64923
 !
 vrf RVP_RUS
 address-family ipv4 unicast
 neighbors 192.2.8.214 remote-as 64911 
 bfd
-description RVP_RUS_SC2-A1
+description RVP_RUS_SC2-A2
+!
+router bgp 64923
 !
 vrf PZEUS
 address-family ipv4 unicast
 neighbors 192.2.248.54 remote-as 64911 
 bfd
-description PZEUS_SC2-A1
+description PZEUS_SC2-A2
+!
+router bgp 64923
 !
 vrf RVP_ETRALI
 address-family ipv4 unicast
 neighbors 192.2.156.97 remote-as 64911 
 bfd
-description RVP_ETRALI_SC2-A1
+description RVP_ETRALI_SC2-A2
 !
 ! 
 

@@ -137,7 +137,7 @@ show feature | include bfd
 ! B) Add if missIN ing: no ip redirects,no ip unreachables, no ip proxy-arp
 ! C) Add BFD: bfd  interval 500 min_rx 500 multiplier 3 /!\ for Etherchannels: bfd interval 750 min_rx 750 multiplier 3
 !
-interface Ethernet2/2
+interface Eth1/1
  !
 !
 interface Ethernet1/1.3801
@@ -188,17 +188,23 @@ neighbors 192.2.248.50 remote-as 64911
 bfd
 description PZEUS_SC2-A1
 !
+router bgp 64923
+!
 vrf RVP_RUS
 address-family ipv4 unicast
 neighbors 192.2.8.218 remote-as 64911 
 bfd
 description RVP_RUS_SC2-A1
 !
+router bgp 64923
+!
 vrf RVP_PRVSHAREDSERVICES
 address-family ipv4 unicast
 neighbors 192.4.148.50 remote-as 64911 
 bfd
 description RVP_PRVSHAREDSERVICES_SC2-A1
+!
+router bgp 64923
 !
 vrf RVP_ETRALI
 address-family ipv4 unicast
